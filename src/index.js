@@ -13,9 +13,11 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    autoHideMenuBar: false,
+    autoHideMenuBar: true,
     frame: false,
+    icon: path.join(__dirname,'/img/icon.png'),
     webPreferences: {
+      devTools: false,
       webSecurity: false,
       nodeIntegration: true,
       contextIsolation: false,
