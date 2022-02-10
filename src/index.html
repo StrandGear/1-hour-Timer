@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Timer</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    
+    <div class="titlebar">
+      <p class="title">Timer</p>
+      <span class="top_button dot" id="green_dot"></span>
+      <span class="top_button dot" id="purple_dot"></span>
+      <div class="top_button minimize">_</div>
+      <div class="top_button exit" id="close-btn">X</div>
+    </div>
+
+    <!-- FIRST WINDOW -->
+    <div id="first">
+      <div class="img1" id="monica1"></div>
+      <div class="img1" id="tree1"></div>
+      <p class="main_txt">let's start this day</p>
+      <button class="button-55" id="startButton">start</button>
+    </div>
+
+    <!-- SECOND WINDOW -->
+    <div id="second">
+      <p class="main_txt"> KEEP GOING </p>
+      <p id="countdown"></p>
+      <div class="img2" id="img2_purple"></div>
+      <div class="img2" id="img2_green"></div>
+      </div>  
+    <!-- THIRD WINDOW -->
+    <div id="third">
+      <audio id="alert"></audio>
+      <p class="main_txt"> HOW WAS THIS HOUR? </p>
+      <div id="buttonsBlock">
+        <button class="button-55" id="productiveBtn">productive</button>
+        <button class="button-55" id="unproductiveBtn">unproductive</button>
+      </div>
+      <div id="resultBlock">
+        <p id="hours"></p>
+        <p id="productive"></p>
+        <p id="unproductive"></p>
+      </div>
+      <button class="button-55" id="continueButton">next hour</button>
+    </div>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

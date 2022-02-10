@@ -1,0 +1,252 @@
+/*
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+*/
+
+/* styles.css */
+
+/* Add styles here to customize the appearance of your app 
+
+    background-image: url("img/10.png"); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    */
+    * {
+      box-sizing: border-box;
+      --white: #ecf0f1;
+      --white-dark: #bdc3c7;
+      --gray:#41403e;
+      --red: #e40707;
+      --purple: #9b59b6;
+      --light-purple:#bca0bc;
+      --middle-purple:#A663CC;
+      --purple-dark: #8e44ad;
+      --deepblue: #34495e;
+      --deepblue-dark: #2c3e50;
+      --blue: #3498db;
+      --blue-dark: #2980b9;
+      --green: #3A5A40;
+      --light-green: #588157;
+      --dark-green: #344E41;
+      --khaki: #A3B18A;
+  }
+
+  :root {
+    --bg_color:var(--light-purple);
+    --button_color:var(--middle-purple);
+    --title_btn_color:rgba(255,255,255,0.2);
+    --titlebar_color: var(--purple-dark);
+    --btn_text_color:var(--gray);
+    --dark_color:var(--purple-dark);
+    --minimize_hover_color: var(--deepblue-dark);
+    --change_theme_hover_color: rgba(255,255,255,0.2);
+  }
+
+     @font-face {
+      font-family: "Amatic_Regular";
+      src: url("./fonts/Amatic_SC/Amatic_SC/AmaticSC-Regular.ttf");
+     }
+     @font-face {
+      font-family: "Amatic_Bold";
+      src: url("./fonts/Amatic_SC/Amatic_SC/AmaticSC-Bold.ttf");
+     }
+
+    body {
+        padding-top: 50px;
+        background-color: var(--bg_color);
+        color: white;
+        font-family: "Amatic_Regular", sans-serif;
+        text-align: center;
+        font-size: 35px;
+    }
+    .main_txt {
+      font-family: "Amatic_Bold", serif !important;
+      text-transform: uppercase;
+    }
+    .button-55 {
+      width: 150px;
+      height: 60px;
+      align-self: center;
+      background-color: var(--button_color);
+      background-image: none;
+      background-position: 0 90%;
+      background-repeat: repeat no-repeat;
+      background-size: 4px 3px;
+      border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+      border-style: solid;
+      border-width: 2px;
+      box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+      box-sizing: border-box;
+      color: var(--btn_text_color);
+      cursor: pointer;
+      display: inline-block;
+      font-size: 1rem;
+      line-height: 23px;
+      outline: none;
+      padding: .75rem;
+      text-decoration: none;
+      transition: all 235ms ease-in-out;
+      border-bottom-left-radius: 15px 255px;
+      border-bottom-right-radius: 225px 15px;
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      font-family: "Amatic_Regular", serif;
+      font-size: 30px;
+    }
+    
+    .button-55:hover {
+      box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+      transform: translate3d(0, 2px, 0);
+    }
+    
+    .button-55:focus {
+      box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+    }
+    .img1 {
+      left: 1%;
+      position: fixed;
+      width: 250px;
+      height: 550px;
+      background-repeat: no-repeat;
+    }
+    .img1#monica1 {
+      background-image: url("./img/monica1.png");
+    }
+    .img1#tree1 {
+      display: none;
+      background-image: url("./img/pine.png");
+    }
+    div#second {
+      height: 400px;
+    }
+    
+    .img2 {
+      left: auto;
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 500px;
+      height: 500px;
+    }
+    #img2_purple {
+      background-image: url("./img/8.png");
+    }
+    #img2_purple:hover{
+      background-image: url("./img/9.png");
+    }
+    #img2_green {
+      display: none;
+      background-image: url("./img/forest.jpg");
+    }
+    #img2_green:hover{
+      background-image: url("./img/forest.gif");
+    }
+    #buttonsBlock{
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+    }
+    #resultBlock {
+      background-color: var(--dark_color);
+    }
+    #productiveBtn, #unproductiveBtn {
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+    }
+    
+    #secondBackground {
+      position: relative;
+      width: 700px;
+    }
+
+    #continueButton {
+      display: none;
+    }
+
+
+    .titlebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      padding: 0 30px;
+      -webkit-app-region: drag;
+      background: var(--titlebar_color);
+  }
+  
+  .title {
+    position: absolute;
+    left: 30px;
+    color: var(--white);
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
+}
+
+.top_button {
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  background: var(--title_btn_color);
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 999;
+  -webkit-app-region: no-drag;
+}
+  
+  .exit {
+      right: 0;
+  }
+  .exit:hover {
+      color: var(--red);
+      background:var(--white);
+  }
+
+  .minimize {
+    right: 50px;
+}
+.minimize:hover {
+    color: var(--minimize_hover_color);
+    background:var(--white);
+}
+.dot {
+  top: 5px;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+}
+
+#green_dot {
+  right: 150px;
+  background-color: var(--green);
+}
+#green_dot:hover {
+  background-color: var(--khaki);
+}
+
+#purple_dot {
+  right: 200px;
+  background-color: var(--middle-purple);
+}
+#purple_dot:hover {
+  background-color: var(--light-purple);
+}
