@@ -75,12 +75,12 @@ audioElem = document.getElementById("alert")
 startDiv.style.display = "block"
 processDiv.style.display = "none"
 finishDiv.style.display = "none"
+var funcInterval
 
 document.getElementById("startButton").onclick = () =>{
   startDiv.style.display = "none"
   processDiv.style.display = "block"
-  funcInterval = setInterval(updateTimer, 1000)
-  
+  setTimeout(updateTimer, 1000)
 }
 let hoursQuantity = 0
 const finalTime = 3600
@@ -96,7 +96,14 @@ function updateTimer() {
 
     countdownElement.innerHTML = `${minutes}:${seconds}`
 
-    time == finalTime ? hourPassed() : time++
+    if (time >= finalTime)
+    {
+      hourPassed()
+    }
+    else {
+        time++
+        setTimeout(updateTimer, 1000)
+      }
 }
 
 function hourPassed() {
@@ -105,9 +112,7 @@ function hourPassed() {
     finishDiv.style.display = "block"
     time = 0
     playRandomSound()
-    //audioElem.play()
     buttonsBlock.style.display = "flex"
-    clearInterval(funcInterval)
 }
 
 function playRandomSound() {
@@ -122,7 +127,7 @@ document.getElementById("continueButton").onclick = () =>{
   finishDiv.style.display = "none"
   processDiv.style.display = "block"
   document.getElementById("continueButton").style.display = "none"
-  funcInterval = setInterval(updateTimer, 1000)
+  funcInterval = setTimeout(updateTimer, 1000)
 }
 
 let productiveCoefficient = 0
