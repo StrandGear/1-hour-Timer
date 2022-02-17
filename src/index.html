@@ -8,7 +8,7 @@
   <body>
     
     <div class="titlebar">
-      <p class="title">Timer</p>
+      <p class="title" id="barTitle">Timer</p>
       <span class="top_button dot" id="green_dot"></span>
       <span class="top_button dot" id="purple_dot"></span>
       <div class="top_button minimize">_</div>
@@ -44,6 +44,13 @@
         <p id="unproductive"></p>
       </div>
       <button class="button-55" id="continueButton">next hour</button>
+    </div>
+    <div id="alertPanel">
+      <div id="alertWindow">
+        <p class="main_txt">Reset Timer?</p>
+        <button class="button-55 alert_btn" id="confirmBtn">yes</button>
+        <button class="button-55 alert_btn" id="disconfirmBtn">no</button>
+      </div>
     </div>
     <script src="./renderer.js"></script>
   </body>

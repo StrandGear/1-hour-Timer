@@ -48,6 +48,7 @@ body {
     --dark_color:var(--purple-dark);
     --minimize_hover_color: var(--deepblue-dark);
     --change_theme_hover_color: rgba(255,255,255,0.2);
+
   }
 
      @font-face {
@@ -177,7 +178,6 @@ body {
       display: none;
     }
 
-
     .titlebar {
       position: fixed;
       top: 0;
@@ -197,7 +197,12 @@ body {
     text-transform: uppercase;
     padding: 0;
     margin: 0;
-}
+    -webkit-app-region: no-drag;
+  }
+  .title:hover {
+    cursor: pointer;
+    text-shadow: 1px 1px 4px pink;
+  }
 
 .top_button {
   position: absolute;
@@ -252,4 +257,38 @@ body {
 }
 #purple_dot:hover {
   background-color: var(--light-purple);
+}
+
+#alertPanel {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.596);
+}
+
+#alertWindow {
+  border-radius: 0.3rem;
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.600);
+  width: 300px;
+  height: 180px;
+  display: inline-block;
+  margin-top: 15%;
+  background-color: var(--titlebar_color);
+}
+#alertWindow:hover {
+  transform: translate3d(2px, 2px, 0);
+  box-shadow: 6px 6px 6px 1px rgba(0, 0, 0, 0.600);
+}
+.alert_btn:first-of-type {
+  margin-right: 5%;
+}
+.alert_btn {
+  font-size: 25px;
+  font-family: "Amatic_Bold", sans-serif;
+  width: 60px;
+  height: 45px;
 }

@@ -17,7 +17,7 @@ const createWindow = () => {
     frame: false,
     icon: path.join(__dirname,'/img/icon.png'),
     webPreferences: {
-      devTools: false,
+      devTools: true,
       webSecurity: false,
       nodeIntegration: true,
       contextIsolation: false,

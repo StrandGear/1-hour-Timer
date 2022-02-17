@@ -67,27 +67,63 @@ document.querySelector("#purple_dot").onclick = () => {
   max_num = purple_sounds.length
   purple_theme = true
 }
+
 startDiv = document.getElementById("first")
 processDiv = document.getElementById("second")
 finishDiv = document.getElementById("third")
+resultBlock = document.getElementById("resultBlock")
 audioElem = document.getElementById("alert")
+alertPanel =  document.getElementById("alertPanel")
+backBtn = document.getElementById("backButton")
+startBtn = document.getElementById("startButton")
+continueBtn = document.getElementById("continueButton")
+confirmBtn = document.getElementById("confirmBtn")
+disconfirmBtn = document.getElementById("disconfirmBtn")
+titleElem = document.getElementById("barTitle")
 
 startDiv.style.display = "block"
 processDiv.style.display = "none"
 finishDiv.style.display = "none"
-var funcInterval
 
-document.getElementById("startButton").onclick = () =>{
+titleElem.onclick = () => {
+  alertPanel.style.display = "block"
+}
+confirmBtn.onclick = () => {
+    mainScreenOn = true
+    resultBlock.style.display = "none"
+    startDiv.style.display = "block"
+    processDiv.style.display = "none"
+    finishDiv.style.display = "none"
+    continueBtn.style.display = "none"
+    alertPanel.style.display = "none"
+}
+disconfirmBtn.onclick = () => {
+  mainScreenOn = false
+  alertPanel.style.display = "none"
+}
+
+var interval = 1000
+var expected = 0
+var finalTime = 3600
+let time
+let hoursQuantity
+mainScreenOn = false
+
+startBtn.onclick = () => {
   startDiv.style.display = "none"
   processDiv.style.display = "block"
-  setTimeout(updateTimer, 1000)
+  mainScreenOn = false
+  statsReset()
+  setTimeout(updateTimer, interval)
 }
-let hoursQuantity = 0
-const finalTime = 3600
-let time = 0
+
 countdownElement = document.getElementById("countdown")
 
 function updateTimer() {
+  var dt = Date.now() - expected
+  if (dt > interval)
+    console.log("curr time > interval of timer")
+
     let seconds = time % 60
     let minutes = Math.floor(time / 60)
 
@@ -98,11 +134,13 @@ function updateTimer() {
 
     if (time >= finalTime)
     {
+      if (!mainScreenOn)
       hourPassed()
     }
     else {
         time++
-        setTimeout(updateTimer, 1000)
+        expected += interval;
+        setTimeout(updateTimer, Math.max(0, interval - dt))
       }
 }
 
@@ -122,12 +160,13 @@ function playRandomSound() {
   audioElem.volume = 0.15
   audioElem.play()
 }
-document.getElementById("continueButton").onclick = () =>{
+continueBtn.onclick = () =>{
   document.getElementById("resultBlock").style.display = "none"
   finishDiv.style.display = "none"
   processDiv.style.display = "block"
-  document.getElementById("continueButton").style.display = "none"
-  funcInterval = setTimeout(updateTimer, 1000)
+  continueBtn.style.display = "none"
+  expected = Date.now() + interval
+  setTimeout(updateTimer, interval)
 }
 
 let productiveCoefficient = 0
@@ -146,7 +185,7 @@ document.getElementById("unproductiveBtn").onclick = () => {
 
 function showResult(){
   audioElem.load()
-  document.getElementById("resultBlock").style.display = "block"
+  resultBlock.style.display = "block"
 
   hoursQuantity == 1 ? document.getElementById("hours").innerHTML = "You had <b>" + hoursQuantity + "</b> life hour" : document.getElementById("hours").innerHTML = "You had <b>" + hoursQuantity + "</b> life hours"
 
@@ -159,11 +198,20 @@ function showResult(){
   break
   default : document.getElementById("unproductive").innerHTML = "<b>" + unproductiveCoefficient + "</b> hours you could spend differently"
   }
-  document.getElementById("continueButton").style.display = "inline-block"
+  continueBtn.style.display = "inline-block"
 }
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function statsReset() {
+  time = 0
+  hoursQuantity = 0
+  audioElem.load()
+  expected = Date.now() + interval
+  productiveCoefficient = 0
+  unproductiveCoefficient = 0
 }
